@@ -70,7 +70,6 @@ st.pyplot(fig)
 plt.close()
 
 st.markdown("---")
-st.write("TEST: Clinical section is loading!")
 
 # Clinical Interpretation
 st.subheader("Clinical Interpretation")
