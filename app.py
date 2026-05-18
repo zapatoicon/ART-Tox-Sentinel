@@ -70,6 +70,32 @@ st.pyplot(fig)
 plt.close()
 
 st.markdown("---")
+st.write("TEST: Clinical section is loading!")
+
+# Clinical Interpretation
+st.subheader("Clinical Interpretation")
+
+col1, col2 = st.columns(2)
+
+with col1:
+    st.info(
+        "**Renal Risk Pattern:**\n\n"
+        "- TDF-containing regimens show higher renal toxicity\n"
+        "- Mechanism: TDF accumulates in proximal tubular cells via OAT1/OAT3 transporters\n"
+        "  leading to mitochondrial dysfunction and reduced eGFR\n"
+        "- Action: Monitor eGFR every 3 months; consider switch to ABC if eGFR <60 mL/min"
+    )
+
+with col2:
+    st.warning(
+        "**CV Risk Pattern:**\n\n"
+        "- TDF/3TC/DTG shows highest cardiovascular risk\n"
+        "- Mechanism: DTG associated with weight gain and insulin resistance leading to\n"
+        "  dyslipidemia and accelerated atherosclerosis\n"
+        "- Action: Lifestyle counseling at each visit; consider lipid panel every 6 months"
+    )
+
+st.markdown("---")
 
 # Clinical markers
 st.subheader("Clinical Marker Distributions")
@@ -93,6 +119,34 @@ with col2:
     plt.xticks(rotation=15)
     st.pyplot(fig3)
     plt.close()
+
+    st.markdown("---")
+
+# Clinical Decision Support
+st.subheader("Clinical Decision Support")
+
+# Calculate risk for each regimen
+regimen_risks = df_filtered.groupby('art_regimen').agg({
+    'renal_risk_flag': 'mean',
+    'cardio_risk_flag': 'mean',
+    'severe_qtc_flag': 'mean',
+    'egfr_ml_min': 'median'
+}).round(3)
+
+st.dataframe(regimen_risks, use_container_width=True)
+
+# Add recommendations
+st.markdown("### Regimen-Specific Recommendations:")
+
+recs = {
+    'TDF/3TC/EFV': "High renal risk. Consider baseline eGFR before initiation. Switch to ABC if eGFR <60 mL/min or if significant proteinuria develops.",
+    'TDF/3TC/DTG': "Highest combined renal and CV risk. Monitor weight, lipids, and eGFR every 3 months. Consider DTG-sparing regimen if metabolic complications arise.",
+    'ABC/3TC/DTG': "Lower renal risk profile. Preferred for patients with baseline CKD or renal risk factors. Monitor for hypersensitivity reaction if HLA-B*5701 status unknown."
+}
+
+for regimen, rec in recs.items():
+    if regimen in regimen_risks.index:
+        st.info(f"**{regimen}:** {rec}")
 
 st.markdown("---")
 
