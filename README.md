@@ -67,14 +67,14 @@ Built with Streamlit, pandas, matplotlib, and seaborn. Risk distributions, eGFR/
 
 ## 4. Output / Features
 
-- **Cohort Overview** — patient count and risk prevalence metrics, filterable by regimen and sex
-- **Risk Distribution Charts** — renal and CV risk flag counts grouped by ART regimen
-- **Clinical Interpretation** — filter-responsive explanation of risk mechanisms for regimens currently in view
-- **Clinical Marker Distributions** — eGFR and BMI boxplots with clinical threshold lines
-- **Clinical Decision Support Table** — regimen-level risk proportions and median eGFR
-- **Regimen-Specific Monitoring Recommendations** — plain-language guidance per regimen
-- **High-Risk Patient Surveillance List** — individual patients flagged for combined renal + CV risk, sorted by eGFR
-- **Risk Flag Logic Panel** — plain-English explanation of every flag's trigger conditions
+- **Cohort Overview** : patient count and risk prevalence metrics, filterable by regimen and sex
+- **Risk Distribution Charts** : renal and CV risk flag counts grouped by ART regimen
+- **Clinical Interpretation** : filter-responsive explanation of risk mechanisms for regimens currently in view
+- **Clinical Marker Distributions** : eGFR and BMI boxplots with clinical threshold lines
+- **Clinical Decision Support Table** : regimen-level risk proportions and median eGFR
+- **Regimen-Specific Monitoring Recommendations** : plain-language guidance per regimen
+- **High-Risk Patient Surveillance List** : individual patients flagged for combined renal + CV risk, sorted by eGFR
+- **Risk Flag Logic Panel** : plain-English explanation of every flag's trigger conditions
 
 ---
 

@@ -354,8 +354,8 @@ with st.expander("About This Tool / Methods"):
 
 ART-Tox Sentinel is a prototype health informatics dashboard built to simulate
 automated toxicity surveillance for HIV patients on first-line antiretroviral therapy
-in Nigerian public-sector clinic settings. It demonstrates how routine laboratory
-data — renal markers, cardiometabolic indicators, and ECG-derived QTc intervals —
+in Nigerian public sector clinic settings. It demonstrates how routine laboratory
+data such as renal markers, cardiometabolic indicators and ECG-derived QTc intervals 
 can be structured into a risk-flagging pipeline to support clinical monitoring workflows.
 
 ---
